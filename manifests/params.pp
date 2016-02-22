@@ -12,7 +12,7 @@ class vault::params {
 
   case $operatingsystem {
     'CentOS': {
-      if operatingsystemmajrelease == '7' {
+      if $operatingsystemmajrelease == '7' {
         $service_provider = 'systemd'
       } 
       else { 
