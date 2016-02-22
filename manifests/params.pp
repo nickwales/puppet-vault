@@ -11,10 +11,7 @@ class vault::params {
   $service_name = 'vault'
 
   case $operatingsystem == "CentOS" {
-    /^7.*/: {
-      $service_provider = 'systemd'
-    } else {
-      $service_provider = 'upstart'
-    }
+    /^7.*/:  { $service_provider = 'systemd' } 
+    default: { $service_provider = 'upstart' }
   }
 }
