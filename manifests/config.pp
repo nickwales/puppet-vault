@@ -12,12 +12,6 @@ class vault::config {
     content => vault_sorted_json($::vault::config_hash),
   }
 
-  file { '/etc/systemd/system/vault.service':
-    mode    => '0444',
-    owner   => 'root',
-    group   => 'root',
-    content => file('puppet:///modules/vault/vault.service'),
-  }
   file { '/etc/init/vault.conf':
     mode    => '0444',
     owner   => 'root',
