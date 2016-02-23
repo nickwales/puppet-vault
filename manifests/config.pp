@@ -14,9 +14,6 @@ class vault::config (
     content => vault_sorted_json($::vault::config_hash),
   }
   
-notify {"What is my service provider? ${service_provider}": }
-
-
   if $service_provider == 'upstart' { 
     file { '/etc/init/vault.conf':
       mode    => '0444',
