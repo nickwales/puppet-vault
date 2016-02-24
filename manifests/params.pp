@@ -7,7 +7,7 @@ class vault::params {
   $user         = 'vault'
   $group        = 'vault'
   $bin_dir      = '/usr/local/bin'
-  $config_dir   = '/etc/vault'
+  $config_dir   = '/etc/vault.d'
   $service_name = 'vault'
 
   case $operatingsystem {
