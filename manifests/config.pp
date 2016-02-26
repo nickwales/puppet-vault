@@ -10,8 +10,12 @@ class vault::config (
     purge   => $::vault::purge_config_dir,
     recurse => $::vault::purge_config_dir,
   } ->
+
   file { "${::vault::config_dir}/config.json":
-    content => vault_sorted_json($::vault::config_hash),
+    mode    => '0444',
+    owner   => 'root',
+    group   => 'root',
+    content => template('vault.json.erb'),
   }
   
   if $service_provider == 'upstart' { 

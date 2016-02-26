@@ -3,10 +3,14 @@
 # This class is meant to be called from vault.
 # It sets variables according to platform.
 #
-class vault::params {
+class vault::params (
+  $path          = '',
+  $tls_cert_file = '',
+  $tls_key_file  = '',
+) {
   $user         = 'vault'
   $group        = 'vault'
-  $bin_dir      = '/usr/local/bin'
+  $bin_dir      = '/usr/local/sbin'
   $config_dir   = '/etc/vault.d'
   $service_name = 'vault'
 
