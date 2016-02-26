@@ -18,7 +18,7 @@ class vault::config (
     mode    => '0444',
     owner   => 'root',
     group   => 'root',
-    content => template('vault.json.erb'),
+    content => template('vault/vault.json.erb'),
   }
   
   if $service_provider == 'upstart' { 
