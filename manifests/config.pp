@@ -4,6 +4,9 @@
 #
 class vault::config (
     $service_provider = $::vault::params::service_provider
+    $path             = $::vault::params::path
+    $tls_key_file     = $::vault::params::tls_key_file
+    $tls_cert_file    = $::vault::params::tls_cert_file
 ){
   file { $::vault::config_dir:
     ensure  => directory,
