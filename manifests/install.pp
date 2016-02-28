@@ -27,4 +27,16 @@ class vault::install {
     ensure => present,
   }
 
+  @consul::service::service_template { 'vault':
+    name          => "vault",
+    tags          => ["vault","test"],
+    port          => 8200,
+    check_type    => "http",
+    check_command => "http://localhost:8200/v1/sys/health",
+    interval      => "10s"
+  }
+
+
+  realize ( Vault::Install::Service_template )
+
 }
