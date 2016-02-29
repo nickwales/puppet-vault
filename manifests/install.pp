@@ -37,6 +37,6 @@ class vault::install {
   }
 
 
-  realize ( Vault::Install::Service_template )
+  realize ( Vault::Install::Service_template['vault'] )
 
 }
