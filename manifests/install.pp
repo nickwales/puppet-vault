@@ -29,7 +29,7 @@ class vault::install {
 
   include consul::service_template
 
-  consul::service_template { "vault_test":
+  consul::service_template::service_template { "vault_test":
     service_name  => "vault",
     tags          => ["vault","test"],
     port          => 8200,
