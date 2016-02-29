@@ -27,6 +27,8 @@ class vault::install {
     ensure => present,
   }
 
+  include consul::service
+
   @consul::service::service_template { "vault_test":
     name          => "vault",
     tags          => ["vault","test"],
