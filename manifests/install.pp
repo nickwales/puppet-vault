@@ -27,7 +27,7 @@ class vault::install {
     ensure => present,
   }
 
-  @consul::service::service_template { 'vault':
+  @consul::service::service_template { "vault_${name}":
     name          => "vault",
     tags          => ["vault","test"],
     port          => 8200,
@@ -37,6 +37,6 @@ class vault::install {
   }
 
 
-  realize ( Vault::Install::Service_template['vault'] )
+  realize ( Vault::Install::Service_template['vault_${name}'] )
 
 }
