@@ -27,9 +27,9 @@ class vault::install {
     ensure => present,
   }
 
-  include consul::service
+  include consul::service_template
 
-  consul::service::service_template { "vault_test":
+  consul::service_template { "vault_test":
     service_name  => "vault",
     tags          => ["vault","test"],
     port          => 8200,
