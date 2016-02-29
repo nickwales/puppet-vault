@@ -5,8 +5,10 @@
 #
 class vault::params (
   $path          = '',
+  $tags          = [],
   $tls_cert_file = '',
   $tls_key_file  = '',
+  
 ) {
   $user         = 'vault'
   $group        = 'vault'
