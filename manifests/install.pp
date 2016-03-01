@@ -33,7 +33,7 @@ class vault::install (
   include consul::service_template
 
   consul::service_template::service_template { "vault_test":
-    service_name  => "vault",
+    service_name  => "vaults",
     tags          => $tags,
     port          => 8200,
     check_type    => "http",
