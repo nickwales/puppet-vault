@@ -37,7 +37,7 @@ class vault::install (
     tags          => $tags,
     port          => 8200,
     check_type    => "http",
-    check_command => "http://127.0.0.1:8200/v1/sys/health",
+    check_command => "https://127.0.0.1:8200/v1/sys/health",
     interval      => "10s"
   }
 
