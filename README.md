@@ -1,15 +1,12 @@
-[![Puppet Forge](http://img.shields.io/puppetforge/v/jsok/vault.svg)](https://forge.puppetlabs.com/jsok/vault)
-[![Build Status](https://travis-ci.org/jsok/puppet-vault.svg?branch=master)](https://travis-ci.org/jsok/puppet-vault)
-
 # puppet-vault
 
 Puppet module to install and run [Hashicorp Vault](https://vaultproject.io).
 
-Currently installs `v0.2.0` Linux AMD64 binary.
+Installs the consul rpm according to your architecture.
 
 ## Support
 
-This module is currently only tested on Ubuntu 14.04.
+This module is currently only tested on CentOS 7.x
 
 ## Usage
 
@@ -20,37 +17,21 @@ include vault
 By default, vault requires a minimal configuration including a backend and a
 listener.
 
-```puppet
-class { '::vault':
-    config_hash => {
-        'backend' => {
-            'file' => {
-                'path' => '/tmp',
-            }
-        },
-            'listener' => {
-                'tcp' => {
-                    'address' => '127.0.0.1:8200',
-                    'tls_disable' => 1,
-                }
-            }
-    }
-}
-```
+Servers need to be setup via hiera e.g.
 
-or alternatively using Hiera:
-
-```yaml
 ---
-vault::config_hash:
-    backend:
-        file:
-            path: /tmp
-    listener:
-        tcp:
-            address: 127.0.0.1:8200
-            tls_disable: 1
-```
+classes: role::vault
+vault::params::path: <consul_backend_path>
+vault::params::tags: 
+  - tag1
+  - tag2
+  - tag3
+vault::params::tls_cert_file: ssl_cert.crt
+vault::params::tls_key_file: ssl_key.key
+
+## Consul
+
+We use the consul::service_template defined type to create the service in consul
 
 ### mlock
 
