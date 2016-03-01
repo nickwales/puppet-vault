@@ -1,6 +1,9 @@
 # == Class vault::install
 #
-class vault::install {
+class vault::install (
+  $tags = $vault::params::tags,
+) {
+
   $vault_bin = "${::vault::bin_dir}/vault"
 
   package { 'vault':
@@ -31,7 +34,7 @@ class vault::install {
 
   consul::service_template::service_template { "vault_test":
     service_name  => "vault",
-    tags          => ["vault","test"],
+    tags          => $tags,
     port          => 8200,
     check_type    => "http",
     check_command => "http://localhost:8200/v1/sys/health",
