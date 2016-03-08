@@ -29,6 +29,12 @@ vault::params::tags:
 vault::params::tls_cert_file: ssl_cert.crt
 vault::params::tls_key_file: ssl_key.key
 
+## Listeners
+
+Because creating SAN certs with IP's is not possible from 3rd Parties and internally it 
+doesn't work we have created a localhost http listener for the CLI and an https listener on the 
+primary IP address.
+
 ## Consul
 
 We use the consul::service_template defined type to create the service in consul
