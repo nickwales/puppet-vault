@@ -4,7 +4,7 @@
 # It sets variables according to platform.
 #
 class vault::params (
-  $advertise_addr = '',
+  $advertise_addr = $ipaddress,
   $path           = '',
   $tags           = [],
   $tls_cert_file  = '',
