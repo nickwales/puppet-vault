@@ -3,6 +3,7 @@
 # This class is called from vault for service config.
 #
 class vault::config (
+    $advertise_addr   = $::vault::params::advertise_addr,
     $service_provider = $::vault::params::service_provider,
     $path             = $::vault::params::path,
     $tags             = $::vault::params::tags,
