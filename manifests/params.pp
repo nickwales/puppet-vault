@@ -4,10 +4,11 @@
 # It sets variables according to platform.
 #
 class vault::params (
-  $path          = '',
-  $tags          = [],
-  $tls_cert_file = '',
-  $tls_key_file  = '',
+  $advertise_addr = '',
+  $path           = '',
+  $tags           = [],
+  $tls_cert_file  = '',
+  $tls_key_file   = '',
   
 ) {
   $user         = 'vault'

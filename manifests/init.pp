@@ -34,6 +34,7 @@
 #   `vault server --help`
 #
 class vault (
+  $advertise_addr   = $::vault::params::advertise_addr,
   $user             = $::vault::params::user,
   $group            = $::vault::params::group,
   $bin_dir          = $::vault::params::bin_dir,
