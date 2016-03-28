@@ -12,6 +12,7 @@ class vault::config (
 ){
 
   include datadog_agent
+  include datadog_agent::integrations::consul
 
   file { $::vault::config_dir:
     ensure  => directory,
