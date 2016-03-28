@@ -10,6 +10,9 @@ class vault::config (
     $tls_key_file     = $::vault::params::tls_key_file,
     $tls_cert_file    = $::vault::params::tls_cert_file
 ){
+
+  include datadog_agent
+
   file { $::vault::config_dir:
     ensure  => directory,
     purge   => $::vault::purge_config_dir,
